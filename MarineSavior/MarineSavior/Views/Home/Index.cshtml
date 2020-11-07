@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin="" />
+
+
+<style>
+    #mapid {
+        height: 416px;
+    }
+</style>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="map">
+                    <h3>Map</h3>
+                    <div id="mapid"></div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="tbl">
+                    <h3>Incidents</h3>
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Controls</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Unusual Activity</th>
+                                <td>Unusual ship movement at 24.505318, 35.160893</td>
+                                <td class="text-center">
+                                    <i style="margin-right: 7px ;color:green" class="far fa-check-circle"></i>
+                                    <i style="color:#555" class="fas fa-trash"></i>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row">Unusual Activity</th>
+                                <td>Unusual ship movement at 24.505318, 35.160893</td>
+                                <td class="text-center">
+                                    <i style="margin-right: 7px ;color:green" class="far fa-check-circle"></i>
+                                    <i style="color:#555" class="fas fa-trash"></i>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row">Unusual Activity</th>
+                                <td>Unusual ship movement at 24.505318, 35.160893</td>
+                                <td class="text-center">
+                                    <i style="margin-right: 7px ;color:green" class="far fa-check-circle"></i>
+                                    <i style="color:#555" class="fas fa-trash"></i>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row">Unusual Activity</th>
+                                <td>Unusual ship movement at 24.503518, 37.111893</td>
+                                <td class="text-center">
+                                    <i style="margin-right: 7px ;color:green" class="far fa-check-circle"></i>
+                                    <i style="color:#555" class="fas fa-trash"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin="">
+
+</script>
+<script>
+    var mymap = L.map('mapid').setView([24.468, 35.1966], 14);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(mymap);
+
+
+    var circle = L.circle([24.468, 35.1966], {
+        color: 'green',
+        fillColor: '#17ef1d',
+        fillOpacity: 0.5,
+        radius: 500
+    }).addTo(mymap);
+    L.marker([24.468, 35.1966]).addTo(mymap);
+</script>
